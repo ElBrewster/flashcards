@@ -13,7 +13,6 @@ describe('Card', function() {
   });
 
   it('should be an instance of Card', function() {
-    // const card = new Card();
     const card = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
     expect(card).to.be.an.instanceof(Card);
   }); 

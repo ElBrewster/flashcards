@@ -1,8 +1,15 @@
-class Round {
-    constructor(card1) {
-        //correct/incorrect guesses
-        //current card(index position 0)
+const Card = require("./Card");
+const Deck = require("./Deck");
 
+class Round {
+    constructor(deck) {
+        this.deck = deck;
+        // console.log("here is my:", this.deck);
+    }
+
+    returnCurrentCard() {
+        // console.log("In my method:", this.deck.cards[0]);
+        return this.deck.cards[0];
     }
 }
 //takes in responses

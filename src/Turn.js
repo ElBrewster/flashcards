@@ -12,7 +12,6 @@ class Turn {
     };
 
     returnCard() {
-        //should I create a new instance of card in here?
         return this.card;
     }
     

@@ -40,15 +40,21 @@ describe('Round', function() {
 
     it('should have a method that returns the current card being played', () => {
         let methodVar = round.returnCurrentCard();
+        let firstCard = round.deck.cards[0];
         expect(methodVar).to.equal(round.deck.cards[0]);
         // console.log("test:", round.deck.cards[0]);
-        expect(round.deck.cards[0]).to.equal(card1);
+        // expect(round.deck.cards[0]).to.equal(card1);
+        expect(firstCard).to.equal(card1);
 
+    });
+
+    it('should have a property that counts the number of turns', () => {
+        expect(round.turns).to.be.finite;
+    });
+
+    it('should have a property that stores the number of incorrectGuesses in an array', () => {
+        expect(round.incorrectGuesses).to.be.an.instanceof(Array);
     })
-    // it('should have a property that stores an instance of Turn', () => {
-
-    // });
-
     //takeTurn(); updates 'turns' count, evaluates guesses, gives feedback, stores ids of incorrect guesses
         //instantiates a new turn to access...?(yes)
     //calculatePercentCorrect(); calculates and returns the percentage of correct guesses

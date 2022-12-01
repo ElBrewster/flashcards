@@ -4,6 +4,8 @@ const Deck = require("./Deck");
 class Round {
     constructor(deck) {
         this.deck = deck;
+        this.turns = 0;
+        this.incorrectGuesses = [];
         // console.log("here is my:", this.deck);
     }
 

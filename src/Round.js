@@ -12,7 +12,7 @@ class Round {
 
     returnCurrentCard() {
         // console.log("In my method:", this.deck.cards[0]);
-        //have deck.function(); instead
+        //have deck.function();
         return this.deck.cards[0];
     }
 
@@ -20,7 +20,7 @@ class Round {
         let newTurn = new Turn(guess, card);
         // console.log(newTurn);
         this.turns++;
-        newTurn.evaluateGuess();
+        // return newTurn.evaluateGuess();
     }
 }
 //takes in responses

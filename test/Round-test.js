@@ -17,7 +17,7 @@ describe('Round', function() {
     let turn;
     let turn2;
     beforeEach(function() {
-        console.log('Starting Round...');
+        // console.log('Starting Round...');
         card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
         card2 = new Card(2, "What is a comma-separated list of related values?",  ["array", "object", "function"], "array");
         card3 = new Card(3, "What type of prototype method directly modifies the existing array?", ["mutator method", "accessor method", "iteration method"], "mutator method");
@@ -62,24 +62,25 @@ describe('Round', function() {
         expect(round.incorrectGuesses).to.be.an.instanceof(Array);
     });
 
-    it('should have a method that 1. updates the turns property, (and instantiates a new Turn, evaluates guesses, gives feedback, and stores ids of incorrect guesses in the incorrect guesses array)', () => {
+    it('should have a method that 1. updates the this.turns property, (and instantiates a new Turn, evaluates guesses, gives feedback, and stores ids of incorrect guesses in the incorrect guesses array)', () => {
         round.takeTurn(guess1, card1);
         expect(round.turns).to.equal(1);
     });
-//KEEP because it's almost good-->//
 
-    it('should have a method that (updates the turns property,) instantiates a new Turn, (evaluates guesses, gives feedback, and stores ids of incorrect guesses in the incorrect guesses array)', () => {
-        // console.log(turn);
-        expect(round.takeTurn()).to.have.an.instanceof(Turn);
-    });
-
-    it('should have a method that 1. evaluates guesses, gives feedback, (and stores ids of incorrect guesses in the incorrect guesses array)', () => {
+    it('should use the takeTurn() method to 2. evaluates guesses (gives feedback, and store ids of incorrect guesses in the incorrect guesses array)', () => {
         // console.log("For my takeTurn method:", turn);
         // console.log("For my takeTurn method:", turn2);
         turn.returnGuess(); 
         turn.evaluateGuess();
-        console.log(turn.giveFeedback()); 
+        turn2.returnGuess();
+        console.log("For my takeTurn method:", turn);
+        console.log("For my takeTurn method:", turn2);
+        // console.log("TakeyourTurn!:", turn.giveFeedback()); 
    
+    });
+
+    it('should use takeTurn() method to give feedback', () => {
+
     });
     //takeTurn(); evaluates guesses, gives feedback, stores ids of incorrect guesses
         //instantiates a new turn to access...?(yes)

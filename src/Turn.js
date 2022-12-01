@@ -23,7 +23,6 @@ class Turn {
     }
 
     giveFeedback() {
-        //call giveFeedback before evaluateGuess to fix null blowing up this method
         if (this.userGuess === this.card.correctAnswer) {
             return 'correct!';
         } else {

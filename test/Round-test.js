@@ -62,24 +62,35 @@ describe('Round', function() {
         expect(round.incorrectGuesses).to.be.an.instanceof(Array);
     });
 
-    it('should have a method that 1. updates the this.turns property, (and instantiates a new Turn, evaluates guesses, gives feedback, and stores ids of incorrect guesses in the incorrect guesses array)', () => {
+    it('should have a method that updates the this.turns property, (and instantiates a new Turn, evaluates guesses, gives feedback, and stores ids of incorrect guesses in the incorrect guesses array)', () => {
         round.takeTurn(guess1, card1);
         expect(round.turns).to.equal(1);
     });
 
-    it('should use the takeTurn() method to 2. evaluates guesses (gives feedback, and store ids of incorrect guesses in the incorrect guesses array)', () => {
-        // console.log("For my takeTurn method:", turn);
-        // console.log("For my takeTurn method:", turn2);
+    
+    it('should use takeTurn() method so that the next card becomes the current card', () => {
+        let cardArray1less = deck.cards.shift();
+
+        expect(cardArray1less).to.be.equal(card1);
+    });
+    
+    it('should use the takeTurn() method to evaluate guesses and store card id on an an incorrect guess', () => {
+        let cardArray1less = deck.cards.shift();
+
         turn.returnGuess(); 
         turn.evaluateGuess();
         turn2.returnGuess();
-        console.log("For my takeTurn method:", turn);
-        console.log("For my takeTurn method:", turn2);
-        // console.log("TakeyourTurn!:", turn.giveFeedback()); 
+        turn2.evaluateGuess();
+        round.incorrectGuesses.push(cardArray1less.id);
+
+        expect(cardArray1less.id).to.be.equal(card1.id);
    
     });
 
-    it('should use takeTurn() method to give feedback', () => {
+    it('should use takeTurn() method to give feedback after evaluating guess', () => {
+        
+        expect(false).to.be.false;
+        expect(true).to.be.true;
 
     });
     //takeTurn(); evaluates guesses, gives feedback, stores ids of incorrect guesses

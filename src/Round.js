@@ -18,9 +18,13 @@ class Round {
 
     takeTurn(guess, card) {
         let newTurn = new Turn(guess, card);
-        // console.log(newTurn);
+        let shiftedCard = this.deck.cards.shift();
+        let newGuess = newTurn.returnGuess();
+        let guessEvaluation = newTurn.evaluateGuess();
         this.turns++;
-        // return newTurn.evaluateGuess();
+        if (guessEvaluation) {
+            
+        }
     }
 }
 //takes in responses

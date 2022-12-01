@@ -3,7 +3,11 @@ const Card = require("./Card");
 class Deck {
     constructor(cardArray){
         this.cards = cardArray;
-        this.size = cardArray.length;
+        // this.size = cardArray.length;
+    }
+
+    countCards() {
+        return this.cards.length;
     }
 }
 

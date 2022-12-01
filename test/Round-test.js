@@ -12,7 +12,10 @@ describe('Round', function() {
     let cardArray;
     let deck;
     let round;
-    // let turn;
+    let guess1;
+    let guess2;
+    let turn;
+    let turn2;
     beforeEach(function() {
         console.log('Starting Round...');
         card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
@@ -21,7 +24,10 @@ describe('Round', function() {
         cardArray = [card1, card2, card3];
         deck = new Deck(cardArray);
         round = new Round(deck);
-        // turn = new Turn();
+        guess1 = "object";
+        guess2 = "array";
+        turn = new Turn(guess1, card1);
+        turn2 = new Turn(guess2, card1);
     });
 
     it('should be a function', () => {
@@ -39,9 +45,9 @@ describe('Round', function() {
     });
 
     it('should have a method that returns the current card being played', () => {
-        let methodVar = round.returnCurrentCard();
+        let method1 = round.returnCurrentCard();
         let firstCard = round.deck.cards[0];
-        expect(methodVar).to.equal(round.deck.cards[0]);
+        expect(method1).to.equal(round.deck.cards[0]);
         // console.log("test:", round.deck.cards[0]);
         // expect(round.deck.cards[0]).to.equal(card1);
         expect(firstCard).to.equal(card1);
@@ -54,8 +60,28 @@ describe('Round', function() {
 
     it('should have a property that stores the number of incorrectGuesses in an array', () => {
         expect(round.incorrectGuesses).to.be.an.instanceof(Array);
-    })
-    //takeTurn(); updates 'turns' count, evaluates guesses, gives feedback, stores ids of incorrect guesses
+    });
+
+    it('should have a method that 1. updates the turns property, (and instantiates a new Turn, evaluates guesses, gives feedback, and stores ids of incorrect guesses in the incorrect guesses array)', () => {
+        round.takeTurn(guess1, card1);
+        expect(round.turns).to.equal(1);
+    });
+//KEEP because it's almost good-->//
+
+    it('should have a method that (updates the turns property,) instantiates a new Turn, (evaluates guesses, gives feedback, and stores ids of incorrect guesses in the incorrect guesses array)', () => {
+        // console.log(turn);
+        expect(round.takeTurn()).to.have.an.instanceof(Turn);
+    });
+
+    it('should have a method that 1. evaluates guesses, gives feedback, (and stores ids of incorrect guesses in the incorrect guesses array)', () => {
+        // console.log("For my takeTurn method:", turn);
+        // console.log("For my takeTurn method:", turn2);
+        turn.returnGuess(); 
+        turn.evaluateGuess();
+        console.log(turn.giveFeedback()); 
+   
+    });
+    //takeTurn(); evaluates guesses, gives feedback, stores ids of incorrect guesses
         //instantiates a new turn to access...?(yes)
     //calculatePercentCorrect(); calculates and returns the percentage of correct guesses
     //endRound(); prints the following: '**Round over!**You answerd<>% of the questions correctly!'

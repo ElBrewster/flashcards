@@ -27,6 +27,7 @@ class Turn {
     }
 
     giveFeedback() {
+        //call giveFeedback before evaluateGuess to fix null blowing up this method
         if (this.guessedAnswer === true) {
             return 'correct!';
         } else {

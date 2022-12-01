@@ -33,8 +33,8 @@ describe('Deck', function() {
         //check single element, check length
     });
 
-    it('should know how many Cards are in the Deck', () => {
-        console.log(deck.cards);
-        expect(deck.cards).to.have.lengthOf(deck.size);     
-    });
+    // it('should know how many Cards are in the Deck', () => {
+    //     console.log(deck.cards);
+    //     expect(deck.cards).to.have.lengthOf(deck.size);     
+    // });
 })

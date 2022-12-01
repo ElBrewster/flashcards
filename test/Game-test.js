@@ -3,7 +3,7 @@ const expect = chai.expect;
 const Game = require('../src/Game');
 const Round = require('../src/Round');
 const Deck = require('../src/Deck');
-const Turn = require('../src/Turn');
+// const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Game', function() {
@@ -28,8 +28,28 @@ describe('Game', function() {
         expect(Game).to.be.a('function');
     });
 
-    it('should have a property that instantiates a new Round object', () => {
-        expect(game.round).to.be.an.instanceof(Round);
+    it('should have a property that sets up an empty object the current Round', () => {
+        expect(game.currentRound).to.be.an.instanceof(Object);
+
+    });
+
+    // it('should have a property that sets up an empty array for the cards', () => {
+    //     expect(game.cards).to.be.an.instanceof(Array); to.be.a.property
+
+    // });
+
+    // it('should have a property that sets up an empty object for the deck', () => {
+    //     expect(game.cards).to.be.an.instanceof(Object);
+
+    // });
+
+    it('should have a method that makes cards', () => {
+        const cardSet = cardArray.map(element => element = new Card(element.id, element.question, element.answers, element.correctAnswer));
+        console.log(cardSet);
+        expect(cardSet[0]).to.equal(cardArray[0]);
+        game.makeCards();
+        // console.log("in test", game.cards);
+        
 
     })
 })
@@ -41,3 +61,10 @@ describe('Game', function() {
     //creates new Round with the Deck
     //calls printMessage (already written)
     //calls printQuestion (already written)
+    // this.cards = prototypeQuestions.map(element => {
+        // const id = element.id;
+        // console.log(id);
+        // const question = element.question;
+        // const answers = element.answers;
+        // const correctAnswer = element.correctAnswer;
+        // return element = new Card(element.id, element.question, element.answers, element.correctAnswer);

@@ -32,7 +32,7 @@ class Round {
     calculatePercentCorrect() {
         let percentCorrect = (this.incorrectGuesses.length / this.turns) * 100;
         let fixedPercent = percentCorrect.toFixed(0);
-        this.currentRecord = fixedPercent
+        this.currentRecord = fixedPercent;
         return fixedPercent;
     }
 

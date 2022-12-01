@@ -1,12 +1,32 @@
 const data = require('./data');
-const Round = require('./Round');
 const prototypeQuestions = data.prototypeData;
 const util = require('./util');
+const Round = require('../src/Round');
+const Deck = require('../src/Deck');
+// const Turn = require('../src/Turn');
+const Card = require('../src/Card');
 
 class Game {
-  constructor(deck) {
-    this.round = new Round(deck);
+  constructor() {
+    this.currentRound = {};
+    this.cards;
+    this.deck = {};
   }
+  
+  start() {
+    this.cards = prototypeQuestions;
+    //use an iterator to make data file a set of cards, and 
+    
+    
+  }
+  
+  makeCards() {
+    // console.log(prototypeQuestions);
+    this.cards = prototypeQuestions.map(element => element = new Card(element.id, element.question, element.answers, element.correctAnswer));
+    // console.log("in makeCards Games:", this.cards);
+  }
+
+
 
   printMessage(deck, round) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.

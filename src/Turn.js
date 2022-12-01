@@ -1,4 +1,4 @@
-const Card = require("./Card");
+// const Card = require("./Card");
 
 class Turn {
     constructor(guess, card) {

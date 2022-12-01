@@ -14,6 +14,7 @@ describe('Round', function() {
     let round;
     let guess1;
     let guess2;
+    let guess3;
     let turn;
     let turn2;
     beforeEach(function() {
@@ -26,6 +27,7 @@ describe('Round', function() {
         round = new Round(deck);
         guess1 = "object";
         guess2 = "array";
+        guess3 = "accessor method";
         turn = new Turn(guess1, card1);
         turn2 = new Turn(guess2, card1);
     });
@@ -88,13 +90,36 @@ describe('Round', function() {
     });
 
     it('should use takeTurn() method to give feedback after evaluating guess', () => {
-        
-        expect(false).to.be.false;
-        expect(true).to.be.true;
+        expect(round.takeTurn(guess2, card1)).to.equal('incorrect!');
+        expect(round.takeTurn(guess1, card1)).to.equal('correct!');
 
     });
-    //takeTurn(); evaluates guesses, gives feedback, stores ids of incorrect guesses
-        //instantiates a new turn to access...?(yes)
-    //calculatePercentCorrect(); calculates and returns the percentage of correct guesses
+
+    it('should have a method to calculate percent of questions the user got correct', () => {
+        let round2 = new Round(deck);
+        round2.takeTurn(guess2, card1);
+        round2.takeTurn(guess2, card2);
+        round2.takeTurn(guess3, card3);
+ 
+        let percentCorrect = (round2.incorrectGuesses.length / round2.turns) * 100;
+        let fixedPercent = percentCorrect.toFixed(0);
+
+        expect(percentCorrect).to.be.finite;
+    })
+
+    it('should have a method to print an end of round message from currentRecord property (the storage for calculate percent)', () => {
+        let round2 = new Round(deck);
+        round2.takeTurn(guess2, card1);
+        round2.takeTurn(guess2, card2);
+        round2.takeTurn(guess3, card3);
+ 
+        let percentCorrect = (round2.incorrectGuesses.length / round2.turns) * 100;
+        let fixedPercent = percentCorrect.toFixed(0);
+        let endRoundMsg = `**Round over!**You answerd ${fixedPercent}% of the questions correctly!`;
+        round2.calculatePercentCorrect();
+        round2.endRound();
+
+        expect(endRoundMsg).to.be.a('string');
+    })
     //endRound(); prints the following: '**Round over!**You answerd<>% of the questions correctly!'
 })

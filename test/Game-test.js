@@ -21,50 +21,52 @@ describe('Game', function() {
         cardArray = [card1, card2, card3];
         deck = new Deck(cardArray);
         round = new Round(deck);
-        game = new Game(deck);
+        game = new Game();
 
     })
     it('should be a function', () => {
         expect(Game).to.be.a('function');
     });
 
-    it('should have a property that sets up an empty object the current Round', () => {
-        expect(game.currentRound).to.be.an.instanceof(Object);
+    it('should have a property that sets up the current Round', () => {
+        expect(game.currentRound).to.be.a.property;
 
     });
 
-    // it('should have a property that sets up an empty array for the cards', () => {
-    //     expect(game.cards).to.be.an.instanceof(Array); to.be.a.property
+    it('should have a property that represents the cards array', () => {
+        expect(game.cards).to.be.a.property;
 
-    // });
+    });
 
-    // it('should have a property that sets up an empty object for the deck', () => {
-    //     expect(game.cards).to.be.an.instanceof(Object);
+    it('should have a property that represents the deck object', () => {
+        expect(game.deck).to.be.a.property;
 
-    // });
+    });
 
     it('should have a method that makes cards', () => {
         const cardSet = cardArray.map(element => element = new Card(element.id, element.question, element.answers, element.correctAnswer));
-        console.log(cardSet);
-        expect(cardSet[0]).to.equal(cardArray[0]);
+
+        expect(cardSet).to.have.deep.members(cardArray);
+    });
+
+    it('should have a method to make a deck', () => {
         game.makeCards();
-        // console.log("in test", game.cards);
-        
+        game.makeDeck();
 
-    })
+        expect(deck.cards).to.have.deep.members(cardArray);
+        expect(game.deck).to.be.an.instanceOf(Object);
+    });
+
+    it('should have a method to make a round', () => {
+        game.makeCards();
+        game.makeDeck();
+        game.makeRound(deck);
+        console.log("methodtest:", game);
+        expect(game.currentRound).to.be.an.instanceOf(Object);
+        expect(game.currentRound.deck).to.be.an.instanceOf(Object);
+    });
+
+    it('should have a method that starts the game, instantiates cards, instantiates a deck, instantiates the current round, printsMessage and printsQuestion with these 5 helper functions', () => {
+
+    });
 })
-
-//game.currentRound instantiates a new Round object
-//game.start() method
-    //creates Cards
-    //puts Cards in a Deck
-    //creates new Round with the Deck
-    //calls printMessage (already written)
-    //calls printQuestion (already written)
-    // this.cards = prototypeQuestions.map(element => {
-        // const id = element.id;
-        // console.log(id);
-        // const question = element.question;
-        // const answers = element.answers;
-        // const correctAnswer = element.correctAnswer;
-        // return element = new Card(element.id, element.question, element.answers, element.correctAnswer);

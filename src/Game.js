@@ -8,27 +8,34 @@ const Card = require('../src/Card');
 
 class Game {
   constructor() {
-    this.currentRound = {};
+    this.currentRound;
     this.cards;
-    this.deck = {};
+    this.deck;
   }
   
   start() {
-    this.cards = prototypeQuestions;
-    //use an iterator to make data file a set of cards, and 
-    
-    
+    this.makeCards();
+    this.makeDeck();
+    this.makeRound();
+    this.printMessage(this.deck);
+    this.printQuestion(this.currentRound);
   }
   
   makeCards() {
-    // console.log(prototypeQuestions);
     this.cards = prototypeQuestions.map(element => element = new Card(element.id, element.question, element.answers, element.correctAnswer));
-    // console.log("in makeCards Games:", this.cards);
+  }
+
+  makeDeck() {
+    this.deck = new Deck(this.cards);
+  }
+
+  makeRound() {
+    this.currentRound = new Round(this.deck);
   }
 
 
 
-  printMessage(deck, round) {
+  printMessage(deck) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }

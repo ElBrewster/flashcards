@@ -2,6 +2,6 @@
 
 console.log('Your project is running...'); 
 
-//const Game = require('./Game');
-// new instance of Game
-// call game.start();
+const Game = require('./Game');
+let game = new Game();
+game.start(); 

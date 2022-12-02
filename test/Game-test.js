@@ -65,7 +65,4 @@ describe('Game', function() {
         expect(game.currentRound.deck).to.be.an.instanceOf(Object);
     });
 
-    it('should have a method that starts the game, instantiates cards, instantiates a deck, instantiates the current round, printsMessage and printsQuestion with these 5 helper functions', () => {
-        game.start();
-    });
 })

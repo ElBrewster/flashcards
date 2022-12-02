@@ -19,6 +19,7 @@ class Game {
     this.makeRound();
     this.printMessage(this.deck);
     this.printQuestion(this.currentRound);
+    console.log("methodtest:", this.currentRound.deck.cards[0].correctAnswer);
   }
   
   makeCards() {

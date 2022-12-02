@@ -99,7 +99,7 @@ describe('Round', function() {
         let round2 = new Round(deck);
         round2.takeTurn(guess2, card1);
         round2.takeTurn(guess2, card2);
-        round2.takeTurn(guess3, card3);
+        console.log(round2.takeTurn(guess3, card3));
  
         let percentCorrect = (round2.incorrectGuesses.length / round2.turns) * 100;
         let fixedPercent = percentCorrect.toFixed(0);

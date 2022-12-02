@@ -5,7 +5,7 @@
 This project is a flashcard game played in the Command Line Interface. The user selects an answer to a coding problem question from of three choices. The game tracks the number of correct answers to inform the user of their progress and accuracy in understanding these questions.
 
 ## GIF of working application:
-![flash cards gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)![ezgif com-gif-maker](https://user-images.githubusercontent.com/113723085/205208858-8c82f602-425a-44ca-9bd3-4dc8d474058f.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/113723085/205208858-8c82f602-425a-44ca-9bd3-4dc8d474058f.gif)
 
 
 ## Technologies

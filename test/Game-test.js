@@ -3,7 +3,6 @@ const expect = chai.expect;
 const Game = require('../src/Game');
 const Round = require('../src/Round');
 const Deck = require('../src/Deck');
-// const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 describe('Game', function() {
@@ -24,6 +23,7 @@ describe('Game', function() {
         game = new Game();
 
     })
+
     it('should be a function', () => {
         expect(Game).to.be.a('function');
     });
@@ -61,12 +61,11 @@ describe('Game', function() {
         game.makeCards();
         game.makeDeck();
         game.makeRound(deck);
-        console.log("methodtest:", game.currentRound.deck);
         expect(game.currentRound).to.be.an.instanceOf(Object);
         expect(game.currentRound.deck).to.be.an.instanceOf(Object);
     });
 
     it('should have a method that starts the game, instantiates cards, instantiates a deck, instantiates the current round, printsMessage and printsQuestion with these 5 helper functions', () => {
-        
+        game.start();
     });
 })

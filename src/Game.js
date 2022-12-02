@@ -3,7 +3,6 @@ const prototypeQuestions = data.prototypeData;
 const util = require('./util');
 const Round = require('../src/Round');
 const Deck = require('../src/Deck');
-// const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 
 class Game {
@@ -19,7 +18,7 @@ class Game {
     this.makeRound();
     this.printMessage(this.deck);
     this.printQuestion(this.currentRound);
-    console.log("methodtest:", this.currentRound.deck.cards[0].correctAnswer);
+    // console.log("methodtest:", this.currentRound.deck.cards[0].correctAnswer);
   }
   
   makeCards() {
@@ -33,8 +32,6 @@ class Game {
   makeRound() {
     this.currentRound = new Round(this.deck);
   }
-
-
 
   printMessage(deck) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.

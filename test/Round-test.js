@@ -50,8 +50,6 @@ describe('Round', function() {
         let method1 = round.returnCurrentCard();
         let firstCard = round.deck.cards[0];
         expect(method1).to.equal(round.deck.cards[0]);
-        // console.log("test:", round.deck.cards[0]);
-        // expect(round.deck.cards[0]).to.equal(card1);
         expect(firstCard).to.equal(card1);
 
     });
@@ -121,5 +119,4 @@ describe('Round', function() {
 
         expect(endRoundMsg).to.be.a('string');
     })
-    //endRound(); prints the following: '**Round over!**You answerd<>% of the questions correctly!'
 })

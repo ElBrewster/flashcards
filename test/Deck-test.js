@@ -10,7 +10,6 @@ describe('Deck', function() {
     let card3;
     let cardArray;
     beforeEach(function() {
-        // console.log('Initialising Deck Plan...')
         cardArray = [card1, card2, card3];
         card1 = new Card(1, "What allows you to define a set of related information using key-value pairs?", ["object", "array", "function"], "object");
         card2 = new Card(2, "What is a comma-separated list of related values?",  ["array", "object", "function"], "array");
@@ -32,9 +31,4 @@ describe('Deck', function() {
         expect(deck.cards).to.have.deep.members([card1, card2, card3]);
         //check single element, check length
     });
-
-    // it('should know how many Cards are in the Deck', () => {
-    //     console.log(deck.cards);
-    //     expect(deck.cards).to.have.lengthOf(deck.size);     
-    // });
 })

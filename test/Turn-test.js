@@ -7,7 +7,6 @@ describe ('Turn', function() {
     let turn;
     let card;
     beforeEach(function() {
-        // console.log('Initialising...')
         card = new Card(6, "What is an example of a mutator method?", ["sort()", "map()", "join()"], "sort()");
         turn = new Turn("sort", card);
     });
@@ -57,5 +56,4 @@ describe ('Turn', function() {
         turn2.evaluateGuess();
         turn2.giveFeedback();
     })
-
 });

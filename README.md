@@ -4,7 +4,8 @@
 
 This project is a flashcard game played in the Command Line Interface. The user selects an answer to a coding problem question from of three choices. The game tracks the number of correct answers to inform the user of their progress and accuracy in understanding these questions.
 
-## GIF of working application
+## GIF of working application:
+![flash cards gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
 
 ## Technologies
 The technologies used for this project were JavaScript, Visual Studio Code, Mocha and Chai.
